@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Kennei Santiago Romero Becerra - Portafolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="assets/favicon.svg" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="boot-overlay" class="overlay">
+    <div class="boot">
+      <div class="boot-line">INICIANDO SISTEMA... <span class="dot">▮</span></div>
+      <div class="boot-line">CARGANDO MÓDULOS: UI / RED / PROYECTOS / COMMS</div>
+      <div class="boot-line">SISTEMA: KSR-TERMINAL v1.0</div>
+      <div class="boot-line">PRESIONE <kbd>CLICK IZQUIERDO</kbd> PARA ACCEDER</div>
+    </div>
+  </div>
+
+  <main id="desktop">
+    <div id="topbar">
+      <div id="sys-name">KSR-TERMINAL</div>
+      <div id="help">Escribe <code>AYUDA</code> o usa autocompletar con clic en sugerencias</div>
+    </div>
+
+    <div id="workspace"></div>
+
+    <div id="command-bar">
+      <div id="prompt">&gt;_</div>
+      <input id="cmd" spellcheck="false" autocomplete="off" autofocus />
+      <div id="hints">
+        <button class="hint" data-cmd="SOBRE_MI">SOBRE_MI</button>
+        <button class="hint" data-cmd="HABILIDADES">HABILIDADES</button>
+        <button class="hint" data-cmd="PROYECTOS">PROYECTOS</button>
+        <button class="hint" data-cmd="CONTACTO">CONTACTO</button>
+        <button class="hint" data-cmd="CERRAR_TODO">CERRAR_TODO</button>
+      </div>
+    </div>
+
+    <template id="window-template">
+      <div class="win">
+        <div class="win-titlebar">
+          <div class="win-title">VENTANA</div>
+          <div class="win-actions">
+            <button class="min">—</button>
+            <button class="close">✕</button>
+          </div>
+        </div>
+        <div class="win-body"></div>
+      </div>
+    </template>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

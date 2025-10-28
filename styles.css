@@ -1,0 +1,127 @@
+:root{
+  --bg:#07070b;
+  --neon:#00f0ff; /* cyan electric */
+  --muted:#1a1a22;
+  --glass: rgba(255,255,255,0.03);
+  --accent: rgba(0,240,255,0.06);
+  --mono: 'Inconsolata', monospace;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:var(--mono);
+  background: radial-gradient(1200px 500px at 10% 10%, rgba(0,240,255,0.02), transparent 10%),
+              radial-gradient(800px 400px at 90% 90%, rgba(255,0,255,0.01), transparent 10%),
+              var(--bg);
+  color: #cfefff;
+  overflow:hidden;
+}
+
+/* Top bar */
+#topbar{
+  position:fixed; top:0; left:0; right:0;
+  height:44px;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:0 14px;
+  background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);
+  border-bottom:1px solid rgba(0,240,255,0.06);
+  z-index:50;
+}
+#sys-name{color:var(--neon); font-weight:700; letter-spacing:2px}
+#help{font-size:12px; opacity:0.8}
+
+/* Workspace (where windows appear) */
+#workspace{
+  position:absolute; inset:44px 0 72px 0;
+  overflow:hidden;
+  padding:20px;
+}
+
+/* Command bar */
+#command-bar{
+  position:fixed; left:0; right:0; bottom:0;
+  height:72px; display:flex; align-items:center; gap:12px;
+  padding:12px;
+  background:linear-gradient(0deg, rgba(0,0,0,0.6), rgba(0,0,0,0.45));
+  border-top:1px solid rgba(0,240,255,0.04);
+}
+#prompt{color:var(--neon); font-weight:700; width:48px}
+#cmd{
+  flex:1;
+  background:transparent;
+  border:1px solid rgba(255,255,255,0.04);
+  padding:12px;
+  color:#dffaff;
+  outline:none;
+  font-family:var(--mono);
+  font-size:16px;
+  caret-color:var(--neon);
+}
+.hint{background:transparent;border:1px solid rgba(255,255,255,0.03);padding:6px 8px;border-radius:6px;color:#bfeff5;cursor:pointer}
+
+/* Window styles */
+.win{
+  width:520px; height:320px; position:absolute;
+  background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border:1px solid rgba(0,240,255,0.06);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.7);
+  border-radius:10px;
+  overflow:hidden;
+  transform:translate3d(0,0,0);
+  backdrop-filter: blur(6px);
+}
+.win-titlebar{
+  height:44px; display:flex; align-items:center; justify-content:space-between;
+  padding:0 10px; background:linear-gradient(180deg, rgba(0,0,0,0.2), transparent);
+  border-bottom:1px solid rgba(255,255,255,0.02);
+  cursor:grab;
+}
+.win-title{color:var(--neon); font-weight:700}
+.win-actions button{background:transparent;border:0;color:#cfefff;cursor:pointer;margin-left:8px;font-size:14px}
+.win-body{padding:12px; font-size:14px; color:#dffaff; height:calc(100% - 44px); overflow:auto}
+
+/* Glitch effect for headings */
+.glitch{
+  position:relative;
+  color:var(--neon);
+}
+.glitch::before, .glitch::after{
+  content:attr(data-text);
+  position:absolute; left:0; top:0;
+  width:100%;
+  clip:rect(0,900px,0,0);
+}
+.glitch::before{ animation:glitchTop 2.5s infinite linear; opacity:0.8; color:#9ef7ff; transform:translateX(-1px) }
+.glitch::after{ animation:glitchBottom 3s infinite linear; opacity:0.6; color:#00d6ff; transform:translateX(1px) }
+
+@keyframes glitchTop {
+  0%{clip:rect(0,900px,0,0)} 10%{clip:rect(1px,900px,60px,0)} 20%{clip:rect(10px,900px,90px,0)}
+  30%{clip:rect(0,900px,0,0)} 40%{clip:rect(2px,900px,40px,0)}
+  100%{clip:rect(0,900px,0,0)}
+}
+@keyframes glitchBottom {
+  0%{clip:rect(0,900px,0,0)} 15%{clip:rect(60px,900px,140px,0)} 35%{clip:rect(10px,900px,80px,0)}
+  60%{clip:rect(0,900px,0,0)} 100%{clip:rect(0,900px,0,0)}
+}
+
+/* boot overlay */
+.overlay{position:fixed; inset:0; display:flex; align-items:center; justify-content:center; background:linear-gradient(180deg, rgba(0,0,0,0.9), rgba(0,0,0,0.95)); z-index:9999}
+.boot{color:#9ef7ff; font-size:14px; padding:24px; background:transparent; text-align:left}
+.boot-line{margin:6px 0}
+.boot .dot{animation:blink 1s steps(2) infinite}
+@keyframes blink{50%{opacity:0}}
+
+/* responsive */
+@media (max-width:640px){ .win{width:92%; height:60%; left:4%!important; top:18%!important} #command-bar{height:88px} }
+
+/* small decorative scanline */
+body::after{
+  content:"";
+  position:fixed; inset:0;
+  background-image: linear-gradient(rgba(255,255,255,0.012) 1px, transparent 1px);
+  background-size:100% 3px;
+  pointer-events:none;
+  mix-blend-mode:overlay;
+}

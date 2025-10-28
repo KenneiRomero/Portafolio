@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64">
+<rect width="100%" height="100%" fill="#001218"/>
+<circle cx="32" cy="32" r="22" fill="#00f0ff" opacity="0.14"/>
+<text x="50%" y="54%" dominant-baseline="middle" text-anchor="middle" font-family="Inconsolata,monospace" font-size="18" fill="#00f0ff">KSR</text>
+</svg>
