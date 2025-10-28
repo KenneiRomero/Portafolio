@@ -29,7 +29,20 @@ body{
   border-bottom:1px solid rgba(0,240,255,0.06);
   z-index:50;
 }
+#top-left {
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
 #sys-name{color:var(--neon); font-weight:700; letter-spacing:2px}
+#copyright{
+  font-size:10px;
+  color:#9ef7ff;
+  opacity:0.7;
+  font-family: var(--mono);
+  line-height:1;
+}
+#copyright:hover{ opacity:1; }
 #help{font-size:12px; opacity:0.8}
 
 /* Workspace (where windows appear) */
@@ -37,6 +50,8 @@ body{
   position:absolute; inset:44px 0 72px 0;
   overflow:hidden;
   padding:20px;
+  backdrop-filter: blur(4px);
+  background: rgba(0, 0, 0, 0.15);
 }
 
 /* Command bar */
@@ -96,15 +111,8 @@ body{
 .glitch::before{ animation:glitchTop 2.5s infinite linear; opacity:0.8; color:#9ef7ff; transform:translateX(-1px) }
 .glitch::after{ animation:glitchBottom 3s infinite linear; opacity:0.6; color:#00d6ff; transform:translateX(1px) }
 
-@keyframes glitchTop {
-  0%{clip:rect(0,900px,0,0)} 10%{clip:rect(1px,900px,60px,0)} 20%{clip:rect(10px,900px,90px,0)}
-  30%{clip:rect(0,900px,0,0)} 40%{clip:rect(2px,900px,40px,0)}
-  100%{clip:rect(0,900px,0,0)}
-}
-@keyframes glitchBottom {
-  0%{clip:rect(0,900px,0,0)} 15%{clip:rect(60px,900px,140px,0)} 35%{clip:rect(10px,900px,80px,0)}
-  60%{clip:rect(0,900px,0,0)} 100%{clip:rect(0,900px,0,0)}
-}
+@keyframes glitchTop {0%{clip:rect(0,900px,0,0)} 10%{clip:rect(1px,900px,60px,0)} 20%{clip:rect(10px,900px,90px,0)} 30%{clip:rect(0,900px,0,0)} 40%{clip:rect(2px,900px,40px,0)} 100%{clip:rect(0,900px,0,0)}}
+@keyframes glitchBottom {0%{clip:rect(0,900px,0,0)} 15%{clip:rect(60px,900px,140px,0)} 35%{clip:rect(10px,900px,80px,0)} 60%{clip:rect(0,900px,0,0)} 100%{clip:rect(0,900px,0,0)}}
 
 /* boot overlay */
 .overlay{position:fixed; inset:0; display:flex; align-items:center; justify-content:center; background:linear-gradient(180deg, rgba(0,0,0,0.9), rgba(0,0,0,0.95)); z-index:9999}
@@ -127,7 +135,6 @@ body::after{
 }
 
 /* === EFECTO DE BORDE LUMINOSO EN VENTANAS === */
-
 .win {
   position: absolute;
   border: 1px solid rgba(0, 240, 255, 0.2);
@@ -139,7 +146,6 @@ body::after{
   transition: box-shadow 0.4s ease, border-color 0.4s ease;
   animation: windowGlow 4s ease-in-out infinite alternate;
 }
-
 @keyframes windowGlow {
   0% {
     box-shadow:
@@ -160,16 +166,12 @@ body::after{
     border-color: rgba(0, 240, 255, 0.25);
   }
 }
-
-/* Cuando la ventana está activa (última clickeada) */
 .win:active {
   box-shadow:
     0 0 20px rgba(0, 255, 255, 0.6),
     inset 0 0 16px rgba(0, 240, 255, 0.3);
   border-color: rgba(0, 255, 255, 0.6);
 }
-
-/* Efecto sutil al pasar el mouse */
 .win:hover {
   box-shadow:
     0 0 14px rgba(0, 240, 255, 0.5),
@@ -187,14 +189,7 @@ body {
   background-size: 100% 100%, 80px 80px, 80px 80px;
   animation: gridMove 14s linear infinite;
 }
-
 @keyframes gridMove {
   from { background-position: 0 0, 0 0, 0 0; }
   to { background-position: 0 0, 160px 160px, 160px 160px; }
-}
-
-/* Oscurecer ligeramente para mantener el contraste */
-#workspace {
-  backdrop-filter: blur(4px);
-  background: rgba(0, 0, 0, 0.15);
 }

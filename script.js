@@ -8,6 +8,13 @@
    - AYUDA
 */
 
+window.addEventListener("load", () => {
+  const help = document.getElementById("help");
+  if (help) {
+    help.innerHTML = "“Cada error es una oportunidad disfrazada de excepción.” ";
+  }
+});
+
 const projects = [
   {
     id: 1,
@@ -280,38 +287,91 @@ function ejecutarCV(){
 // === CONTACTO ===
 function datosContacto(){
   const html = `
-    <h2 class="glitch" data-text="PROTOCOLO DE COMUNICACIÓN">PROTOCOLO DE COMUNICACIÓN</h2>
-    <p>Correo: <a href="mailto:kennei@example.com" style="color:#00eaff">kennei@example.com</a></p>
-    <p>LinkedIn: <a href="https://linkedin.com/in/kennei" target="_blank" style="color:#00eaff">linkedin.com/in/kennei</a></p>
-    <p>GitHub: <a href="https://github.com/KenneiRomero" target="_blank" style="color:#00eaff">github.com/KenneiRomero</a></p>
-    <div style="margin-top:12px">
-      <button onclick="createWindow('FORM: COMMS','<h3>FORMULARIO DE CONTACTO</h3><p>Puedes reemplazar este texto con un formulario real o con integración a Netlify.</p>')" 
-      style="padding:8px 12px;border-radius:8px;background:none;color:#00eaff;border:1px solid rgba(0,240,255,0.4);cursor:pointer;">
-        INICIAR PROTOCOLO
-      </button>
+    <h2 class="glitch" data-text="COMO CONTACTARME" style="font-size:32px;">COMO CONTACTARME</h2>
+    <div style="display:flex;justify-content:center;align-items:center;gap:35px;flex-wrap:wrap;margin-top:20px;">
+      
+      <!-- Correo -->
+      <a href="mailto:kenneisantiagor@gmail.com" title="Email">
+        <img src="assets/gmail.png" alt="Email" 
+             style="width:70px;height:70px;border-radius:12px;border:2px solid transparent;object-fit:contain;transition:0.3s;">
+      </a>
+
+      <!-- LinkedIn -->
+      <a href="https://www.linkedin.com/in/kennei-santiago-romero-becerra-196b3b376/" target="_blank" title="LinkedIn">
+        <img src="assets/linkedin.png" alt="LinkedIn" 
+             style="width:70px;height:70px;border-radius:12px;border:2px solid transparent;object-fit:contain;transition:0.3s;">
+      </a>
+
+      <!-- GitHub -->
+      <a href="https://github.com/KenneiRomero" target="_blank" title="GitHub">
+        <img src="assets/github.png" alt="GitHub" 
+             style="width:70px;height:70px;border-radius:12px;border:2px solid transparent;object-fit:contain;transition:0.3s;">
+      </a>
+
+      <!-- WhatsApp -->
+      <a href="https://wa.me/573044856439" target="_blank" title="WhatsApp">
+        <img src="assets/whatsapp.webp" alt="WhatsApp" 
+             style="width:70px;height:70px;border-radius:12px;border:2px solid transparent;object-fit:contain;transition:0.3s;">
+      </a>
+
+    </div>
+
+    <div style="margin-top:25px;text-align:center;">
+      <a href="https://drive.google.com/uc?export=download&id=1GVSMjrf8T-5gY9_OecTtDKjy3oO_oeXb" 
+         download="Kennei_Santiago_Romero_CV.pdf"
+         style="padding:10px 14px;border-radius:8px;background:none;color:#dffaff;border:1px solid rgba(0,240,255,0.4);
+                cursor:pointer;font-size:16px;text-decoration:none;display:inline-block;transition:0.3s;">
+        DESCARGAR CV
+      </a>
     </div>
   `;
+
   createWindow('COMMS', html);
+
+  // Efecto hover de todos los íconos
+  const win = workspace.lastElementChild;
+  const imgs = win.querySelectorAll('img');
+  imgs.forEach(img => {
+    img.onmouseenter = () => img.style.border = "2px solid #00eaff";
+    img.onmouseleave = () => img.style.border = "2px solid transparent";
+  });
 }
+
 
 // === SOBRE MÍ ===
 function sobreMi(){
   const html = `
-    <h2 class="glitch" data-text="SOBRE MÍ">SOBRE MÍ</h2>
-    <div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap;">
-      <img src="assets/kennei.png" alt="Foto de Kennei Santiago Romero Becerra" 
-      style="width:120px;height:120px;border-radius:12px;border:1px solid rgba(0,240,255,0.06);object-fit:cover;" />
-      <div>
-        <p><strong>Nombre:</strong> Kennei Santiago Romero Becerra</p>
-        <p><strong>Perfil:</strong> Creativo y técnico, enfocado en productos digitales, edición de video y desarrollo web.</p>
-        <p><strong>Intereses:</strong> Reels, UI/UX, herramientas de productividad y experiencias interactivas.</p>
+    <div style="text-align:center;">
+      <h2 class="glitch" data-text="SOBRE MÍ" style="font-size:28px;display:inline-block;margin-bottom:20px;">SOBRE MÍ</h2>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:20px;">
+        <img src="assets/kennei.png" alt="Foto de Kennei Santiago Romero Becerra" 
+          style="width:180px;height:180px;border-radius:20px;border:2px solid rgba(0,240,255,0.4);
+          object-fit:cover;box-shadow:0 0 20px rgba(0,240,255,0.4);" />
+
+        <div style="max-width:700px;text-align:justify;color:#dffaff;line-height:1.5;">
+          <p><strong>Perfil:</strong> Desarrollador Full Stack en formación, con una sólida base en programación y un marcado interés por la tecnología. Se caracteriza por su rápida adaptación a nuevos entornos, aprendizaje constante y habilidades para el trabajo en equipo. Destaca por su responsabilidad, atención al detalle y capacidad para resolver problemas de manera eficaz. Actualmente participa en proyectos que integran funcionalidad y diseño, aplicando tecnologías como JavaScript, Python, HTML, CSS y MySQL.</p>
+          <p><strong>Misión:</strong> Contribuir al desarrollo de soluciones digitales funcionales y creativas que mejoren la vida de las personas, combinando tecnología, diseño y eficiencia.</p>      
+          <p><strong>Visión:</strong> Convertirse en un desarrollador Full Stack reconocido por su capacidad de innovación, aprendizaje continuo y compromiso con la excelencia en cada proyecto.</p>      
+        </div>
+
+        <div style="margin-top:20px;text-align:center;width:100%;">
+          <h3 style="color:#00eaff;margin-bottom:10px;"> Video de Presentación</h3>
+          <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;
+                      border:1px solid rgba(0,240,255,0.2);border-radius:12px;
+                      box-shadow:0 0 12px rgba(0,240,255,0.3);max-width:720px;margin:0 auto;">
+            <iframe 
+              src="https://www.youtube.com/embed/QbYluUGaxso"
+              frameborder="0" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+              allowfullscreen 
+              style="position:absolute;top:0;left:0;width:100%;height:100%;border-radius:12px;">
+            </iframe>
+          </div>
+        </div>
       </div>
     </div>
-    <p style="font-size:12px;color:#9ef7ff;margin-top:10px;">
-      Para usar tu foto real, coloca un archivo en <code>assets/kennei.png</code> y actualiza la ruta.
-    </p>
   `;
-  createWindow('SOBRE MÍ', html);
+  createWindow('KENNEI SANTIAGO ROMERO BECERRA', html);
 }
 
 // === AYUDA ===
