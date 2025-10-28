@@ -1,32 +1,82 @@
-# Portafolio - Terminal de Comando Interdimensional
+# 🧠 KSR-TERMINAL — Portafolio Interactivo de Kennei Santiago Romero Becerra
 
-Este proyecto es un portafolio interactivo diseñado para GitHub Pages que simula una **interfaz de sistema operativo retro / sci-fi**.
-Está pensado para funcionar como una experiencia: el visitante "habla" con el sistema a través de comandos y abre ventanas que contienen proyectos, CV y un formulario de contacto.
+Bienvenido/a a **KSR-TERMINAL**, mi portafolio personal diseñado como una **interfaz retro futurista** que simula un sistema operativo de línea de comandos.  
+Aquí puedes “dialogar” con mi trabajo: explorar mis proyectos, ver mi CV, mis habilidades y contactarme, todo desde una terminal viva.
 
-## Estructura de archivos
-- `index.html` - Página principal
-- `styles.css` - Estilos con estética neon/glitch
-- `script.js` - Lógica de comandos y ventanas
-- `assets/photo_placeholder.svg` - Placeholder para tu foto (reemplaza con tu imagen)
-- `assets/favicon.svg` - Ícono
+---
 
-## Comandos principales
-- `LISTAR_PROYECTOS`
-- `VER_PROYECTO <n>`
-- `EJECUTAR_CV`
-- `DATOS_CONTACTO`
-- `EJECUTAR_DEMO <n>`
-- `AYUDA`
+## 👨‍💻 Sobre el Proyecto
 
-## Personalización rápida
-- Reemplaza `assets/photo_placeholder.svg` por tu foto real (misma ruta y nombre).
-- Cambia el correo y enlaces en `script.js` dentro de la función `datosContacto`.
-- Ajusta paleta en `styles.css` modificando la variable `--neon`.
+Este portafolio combina estética **cyberpunk + UX interactiva**.  
+Cada comando abre una ventana flotante con contenido dinámico: proyectos, habilidades o datos personales.
 
-## Deploy en GitHub Pages
-1. Crea un repo nuevo (ej: `ksr-portfolio`).
-2. Sube los archivos (puedes arrastrar el contenido de este ZIP).
-3. En Settings → Pages elige la rama `main` y carpeta `/ (root)`.
+🛰️ *Inspirado en sistemas operativos antiguos y consolas sci-fi, adaptado para GitHub Pages.*
 
-¡Listo! El sitio debería estar disponible en `https://<tu-usuario>.github.io/<repo>/`.
+---
 
+## 🧩 Tecnologías principales
+
+- **HTML5** + **CSS3** — estructura y estilo con animaciones retro/neón  
+- **JavaScript (vanilla)** — interacción, manejo de comandos y ventanas  
+- **Google Fonts (Inconsolata)** — tipografía tipo terminal  
+- **Diseño responsive** — funciona tanto en escritorio como en móvil  
+
+---
+
+## 🧬 Comandos disponibles
+
+Escribe en la terminal (o haz clic en los botones de sugerencia):
+
+| Comando | Acción |
+|----------|--------|
+| `SOBRE_MI` | Muestra información personal y video de presentación |
+| `HABILIDADES` | Despliega mis habilidades técnicas y blandas |
+| `LISTAR_PROYECTOS` | Lista mis proyectos destacados |
+| `VER_PROYECTO <n>` | Abre los detalles de un proyecto específico |
+| `EJECUTAR_CV` | Abre mi currículum interactivo |
+| `DATOS_CONTACTO` | Muestra redes y enlace para descargar CV |
+| `CERRAR_TODO` | Cierra todas las ventanas |
+| `AYUDA` | Muestra esta lista dentro de la terminal |
+
+---
+
+## 🚀 Mis Proyectos Destacados
+
+1. **HappyFeet Veterinaria** — sistema de gestión completo para clínicas veterinarias *(Java / MySQL)*  
+2. **Banco ACME** — portal bancario con autogestión y transacciones *(HTML / CSS / JS)*  
+3. **Gestión de Finca El Ubérrimo** — base de datos MySQL para control agrícola y comercial  
+4. **Captura de Emociones** — sitio web de bodas con enfoque visual y diseño adaptable *(HTML / CSS)*  
+
+🧩 Puedes verlos ejecutando `LISTAR_PROYECTOS` o directamente con `VER_PROYECTO <n>`.
+
+---
+
+## 💾 Estructura del Repositorio
+
+```
+├── index.html     # Estructura principal de la terminal
+├── styles.css     # Estilos neon, glitch y diseño responsive
+├── script.js      # Lógica interactiva y sistema de ventanas
+└── assets/        # Imágenes, íconos y recursos visuales
+```
+
+---
+
+## ✉️ Contacto
+
+📧 **Correo:** [kenneisantiagor@gmail.com](mailto:kenneisantiagor@gmail.com)  
+💼 **LinkedIn:** [linkedin.com/in/kennei-santiago-romero-becerra-196b3b376](https://www.linkedin.com/in/kennei-santiago-romero-becerra-196b3b376/)  
+🐙 **GitHub:** [github.com/KenneiRomero](https://github.com/KenneiRomero)  
+📱 **WhatsApp:** [wa.me/573044856439](https://wa.me/573044856439)
+
+---
+
+## 🧠 Autor
+
+**Kennei Santiago Romero Becerra**  
+*Desarrollador Web | Editor de Video | Ingeniero de Productos*  
+🎯 Apasionado por crear experiencias digitales, funcionales y visuales con un toque artístico y técnico.
+
+---
+
+> _“Cada error es una oportunidad disfrazada de excepción.”_
