@@ -125,3 +125,76 @@ body::after{
   pointer-events:none;
   mix-blend-mode:overlay;
 }
+
+/* === EFECTO DE BORDE LUMINOSO EN VENTANAS === */
+
+.win {
+  position: absolute;
+  border: 1px solid rgba(0, 240, 255, 0.2);
+  border-radius: 10px;
+  background: rgba(0, 10, 15, 0.9);
+  box-shadow:
+    0 0 6px rgba(0, 240, 255, 0.2),
+    inset 0 0 8px rgba(0, 240, 255, 0.15);
+  transition: box-shadow 0.4s ease, border-color 0.4s ease;
+  animation: windowGlow 4s ease-in-out infinite alternate;
+}
+
+@keyframes windowGlow {
+  0% {
+    box-shadow:
+      0 0 6px rgba(0, 240, 255, 0.3),
+      inset 0 0 8px rgba(0, 240, 255, 0.15);
+    border-color: rgba(0, 240, 255, 0.2);
+  }
+  50% {
+    box-shadow:
+      0 0 14px rgba(0, 240, 255, 0.5),
+      inset 0 0 12px rgba(0, 240, 255, 0.25);
+    border-color: rgba(0, 240, 255, 0.4);
+  }
+  100% {
+    box-shadow:
+      0 0 8px rgba(0, 240, 255, 0.25),
+      inset 0 0 10px rgba(0, 240, 255, 0.2);
+    border-color: rgba(0, 240, 255, 0.25);
+  }
+}
+
+/* Cuando la ventana está activa (última clickeada) */
+.win:active {
+  box-shadow:
+    0 0 20px rgba(0, 255, 255, 0.6),
+    inset 0 0 16px rgba(0, 240, 255, 0.3);
+  border-color: rgba(0, 255, 255, 0.6);
+}
+
+/* Efecto sutil al pasar el mouse */
+.win:hover {
+  box-shadow:
+    0 0 14px rgba(0, 240, 255, 0.5),
+    inset 0 0 10px rgba(0, 240, 255, 0.25);
+  border-color: rgba(0, 240, 255, 0.35);
+}
+
+/* === FONDO ELECTRÓNICO ANIMADO === */
+body {
+  background-color: var(--bg);
+  background-image:
+    radial-gradient(circle at 50% 50%, rgba(0,255,255,0.05), transparent 60%),
+    linear-gradient(90deg, rgba(0,255,255,0.04) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(0,255,255,0.04) 1px, transparent 1px);
+  background-size: 100% 100%, 80px 80px, 80px 80px;
+  animation: gridMove 14s linear infinite;
+}
+
+@keyframes gridMove {
+  from { background-position: 0 0, 0 0, 0 0; }
+  to { background-position: 0 0, 160px 160px, 160px 160px; }
+}
+
+/* Oscurecer ligeramente para mantener el contraste */
+#workspace {
+  backdrop-filter: blur(4px);
+  background: rgba(0, 0, 0, 0.15);
+}
